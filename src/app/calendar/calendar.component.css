@@ -1,7 +1,28 @@
 .wrapper {
-  width: 280px;
+  width: 510px;
 }
 .days {
   display: inline-block;
-  width: 40px;
+  width: 70px;
+  color: brown;
+  background-color: wheat;
+  text-align: center;
+  height: 30px;
+  border: 1px black solid;
+}
+.wrapper-nav {
+  text-align: center;
+  font-size: 1.5rem;
+  color: brown;
+}
+.weekdays {
+  font-size: 1.5rem;
+}
+.button {
+  height: 30px;
+  width: 70px;
+  background-color: wheat;
+  margin: 1rem;
+  color: brown;
+  font-size: 1.5rem;
 }

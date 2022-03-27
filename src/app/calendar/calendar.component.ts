@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { first } from 'rxjs';
 
 @Component({
   selector: 'app-calendar',
@@ -24,10 +23,10 @@ export class CalendarComponent implements OnInit {
   ];
   daysInMonth: number[] = [];
   date = new Date();
-  thisMonthIndex = this.date.getMonth() + 1;
-  thisMonth = this.monthNames[this.thisMonthIndex - 1];
-  thisYear = this.date.getFullYear();
-  daysInMonthNumber = new Date(this.thisYear, this.thisMonthIndex, 0).getDate();
+  monthIndex = this.date.getMonth() + 1;
+  month = this.monthNames[this.monthIndex - 1];
+  year = this.date.getFullYear();
+  daysInMonthNumber = new Date(this.year, this.monthIndex, 0).getDate();
   firstday = new Date(
     this.date.setDate(this.date.getDate() - this.date.getDay())
   );
@@ -39,44 +38,44 @@ export class CalendarComponent implements OnInit {
   }
 
   nextMonth() {
-    if (this.thisMonthIndex === 12) {
-      this.thisMonthIndex = 1;
-      this.thisYear++;
-      this.thisMonth = this.monthNames[this.thisMonthIndex - 1];
+    if (this.monthIndex === 12) {
+      this.monthIndex = 1;
+      this.year++;
+      this.month = this.monthNames[this.monthIndex - 1];
       this.daysInMonthNumber = new Date(
-        this.thisYear,
-        this.thisMonthIndex,
+        this.year,
+        this.monthIndex,
         0
       ).getDate();
       this.createDays();
     } else {
-      this.thisMonthIndex = this.thisMonthIndex + 1;
-      this.thisMonth = this.monthNames[this.thisMonthIndex - 1];
+      this.monthIndex = this.monthIndex + 1;
+      this.month = this.monthNames[this.monthIndex - 1];
       this.daysInMonthNumber = new Date(
-        this.thisYear,
-        this.thisMonthIndex,
+        this.year,
+        this.monthIndex,
         0
       ).getDate();
       this.createDays();
     }
   }
   prevMonth() {
-    if (this.thisMonthIndex === 1) {
-      this.thisMonthIndex = 12;
-      this.thisYear--;
-      this.thisMonth = this.monthNames[this.thisMonthIndex - 1];
+    if (this.monthIndex === 1) {
+      this.monthIndex = 12;
+      this.year--;
+      this.month = this.monthNames[this.monthIndex - 1];
       this.daysInMonthNumber = new Date(
-        this.thisYear,
-        this.thisMonthIndex,
+        this.year,
+        this.monthIndex,
         0
       ).getDate();
       this.createDays();
     } else {
-      this.thisMonthIndex = this.thisMonthIndex - 1;
-      this.thisMonth = this.monthNames[this.thisMonthIndex - 1];
+      this.monthIndex = this.monthIndex - 1;
+      this.month = this.monthNames[this.monthIndex - 1];
       this.daysInMonthNumber = new Date(
-        this.thisYear,
-        this.thisMonthIndex,
+        this.year,
+        this.monthIndex,
         0
       ).getDate();
       this.createDays();
@@ -84,7 +83,7 @@ export class CalendarComponent implements OnInit {
   }
   createDays() {
     this.daysInMonth = [];
-    let firstDay = new Date(this.thisYear, this.thisMonthIndex, 1)
+    let firstDay = new Date(this.year, this.monthIndex, 1)
       .toDateString()
       .slice(0, 3);
 
@@ -93,7 +92,7 @@ export class CalendarComponent implements OnInit {
     }
     if (this.daysNames.indexOf(firstDay) > 0) {
       this.daysInMonth = [
-        ...Array(this.daysNames.indexOf(firstDay)),
+        ...Array(this.daysNames.indexOf(firstDay)).fill('-'),
         ...this.daysInMonth,
       ];
     }
