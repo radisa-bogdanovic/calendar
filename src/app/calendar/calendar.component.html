@@ -7,5 +7,7 @@
 </div>
 
 <div class="wrapper">
-  <span class="days"></span>
+  <span class="days" *ngFor="let dayN of daysInMonth">
+    {{ dayN }}
+  </span>
 </div>
