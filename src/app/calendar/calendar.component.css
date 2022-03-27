@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 280px;
+  display: flex;
+  flex-direction: row;
+}
+.days {
+  display: block;
+  width: 40px;
+  border: 2px solid black;
+  text-align: center;
+}

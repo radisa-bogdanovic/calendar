@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <button (click)="prevMonth()">-</button>{{ thisMonth }}
+  <button (click)="nextMonth()">+</button> {{ thisYear }}
+</div>
+<div class="wrapper">
+  <span class="days" *ngFor="let day of daysNames">{{ day }}</span>
+</div>
+
+<div class="wrapper">
+  <span class="days"></span>
+</div>
