@@ -41,21 +41,13 @@ export class CalendarComponent implements OnInit {
     if (this.monthIndex === 12) {
       this.monthIndex = 1;
       this.year++;
-      this.month = this.monthNames[this.monthIndex - 1];
-      this.daysInMonthNumber = new Date(
-        this.year,
-        this.monthIndex,
-        0
-      ).getDate();
+      this.getMonth();
+      this.dayInMonthNumber();
       this.createDays();
     } else {
       this.monthIndex = this.monthIndex + 1;
-      this.month = this.monthNames[this.monthIndex - 1];
-      this.daysInMonthNumber = new Date(
-        this.year,
-        this.monthIndex,
-        0
-      ).getDate();
+      this.getMonth();
+      this.dayInMonthNumber();
       this.createDays();
     }
   }
@@ -63,21 +55,13 @@ export class CalendarComponent implements OnInit {
     if (this.monthIndex === 1) {
       this.monthIndex = 12;
       this.year--;
-      this.month = this.monthNames[this.monthIndex - 1];
-      this.daysInMonthNumber = new Date(
-        this.year,
-        this.monthIndex,
-        0
-      ).getDate();
+      this.getMonth();
+      this.dayInMonthNumber();
       this.createDays();
     } else {
       this.monthIndex = this.monthIndex - 1;
-      this.month = this.monthNames[this.monthIndex - 1];
-      this.daysInMonthNumber = new Date(
-        this.year,
-        this.monthIndex,
-        0
-      ).getDate();
+      this.getMonth();
+      this.dayInMonthNumber();
       this.createDays();
     }
   }
@@ -96,5 +80,16 @@ export class CalendarComponent implements OnInit {
         ...this.daysInMonth,
       ];
     }
+  }
+
+  getMonth() {
+    return (this.month = this.monthNames[this.monthIndex - 1]);
+  }
+  dayInMonthNumber() {
+    return (this.daysInMonthNumber = new Date(
+      this.year,
+      this.monthIndex,
+      0
+    ).getDate());
   }
 }
