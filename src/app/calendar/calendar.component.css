@@ -14,7 +14,7 @@
   display: inline-block;
   width: calc(95% / 7);
   color: rgb(216, 150, 150);
-  background-color: wheat;
+  background-color: rgb(244, 241, 235);
   text-align: center;
   height: calc(95% / 6);
   border: 1px black solid;
@@ -36,7 +36,7 @@
   height: 17rem;
 }
 .weekdays {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .button {
   height: 30px;
@@ -45,4 +45,9 @@
   margin: 1rem;
   color: brown;
   font-size: 1.5rem;
+}
+.days,
+.daysBefore {
+  text-justify: kashida;
+  font-size: 2rem;
 }

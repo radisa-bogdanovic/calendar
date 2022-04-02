@@ -94,7 +94,7 @@ export class CalendarComponent implements OnInit {
     this.daysInMonth = [];
     this.daysInBeforeMonth = [];
     this.daysFromNextMonth = [];
-    let firstDay = new Date(this.year, this.monthIndex, 1)
+    let firstDay = new Date(this.year, this.monthIndex - 1, 1)
       .toDateString()
       .slice(0, 3);
 
@@ -105,10 +105,13 @@ export class CalendarComponent implements OnInit {
       this.daysInBeforeMonth.push(i);
     }
 
-    this.daysInBeforeMonth = [
-      ...this.daysInBeforeMonth.slice(-(7 - this.daysNames.indexOf(firstDay))),
-    ];
-
+    if (this.daysNames.indexOf(firstDay) != 0) {
+      this.daysInBeforeMonth = [
+        ...this.daysInBeforeMonth.slice(-this.daysNames.indexOf(firstDay)),
+      ];
+    } else {
+      this.daysInBeforeMonth = [...this.daysInBeforeMonth.slice(-7)];
+    }
     this.daysFromNextMonth = [
       ...Array.from(
         {
