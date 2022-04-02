@@ -1,14 +1,28 @@
 <div class="wrapper wrapper-nav">
-  <button class="button" (click)="prevMonth()">-</button>{{ month }}
-  <button class="button" (click)="nextMonth()">+</button> {{ year }}
+  <div class="wrapperInside">
+    <h3>Month:</h3>
+    <button class="button" (click)="prevMonth()">-</button>{{ month }}
+    <button class="button" (click)="nextMonth()">+</button>
+  </div>
+  <div class="wrapperInside">
+    <h3>Year:</h3>
+    <button class="button" (click)="prevYear()">-</button>{{ year }}
+    <button class="button" (click)="nextYear()">+</button>
+  </div>
 </div>
 <br />
 <div class="wrapper weekdays">
   <span class="days" *ngFor="let day of daysNames">{{ day }}</span>
 </div>
 <br />
-<div class="wrapper">
+<div class="wrapper wrapperDays">
+  <span class="daysBefore" *ngFor="let dayB of daysInBeforeMonth">{{
+    dayB
+  }}</span>
   <span class="days" *ngFor="let dayN of daysInMonth">
     {{ dayN }}
   </span>
+  <span class="daysBefore" *ngFor="let dayN of daysFromNextMonth">{{
+    dayN
+  }}</span>
 </div>
