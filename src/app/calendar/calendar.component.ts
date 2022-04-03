@@ -48,47 +48,29 @@ export class CalendarComponent implements OnInit {
     if (this.monthIndex === 12) {
       this.monthIndex = 1;
       this.year++;
-      this.getMonth();
-      this.dayInMonthNumber();
-      this.dayInMonthBeforeNumber();
-      this.createDays();
+      this.wrapperFunction();
     } else {
       this.monthIndex = this.monthIndex + 1;
-      this.getMonth();
-      this.dayInMonthNumber();
-      this.dayInMonthBeforeNumber();
-      this.createDays();
+      this.wrapperFunction();
     }
   }
   prevMonth() {
     if (this.monthIndex === 1) {
       this.monthIndex = 12;
       this.year--;
-      this.getMonth();
-      this.dayInMonthNumber();
-      this.dayInMonthBeforeNumber();
-      this.createDays();
+      this.wrapperFunction();
     } else {
       this.monthIndex = this.monthIndex - 1;
-      this.getMonth();
-      this.dayInMonthNumber();
-      this.dayInMonthBeforeNumber();
-      this.createDays();
+      this.wrapperFunction();
     }
   }
   prevYear() {
     this.year--;
-    this.getMonth();
-    this.dayInMonthNumber();
-    this.dayInMonthBeforeNumber();
-    this.createDays();
+    this.wrapperFunction();
   }
   nextYear() {
     this.year++;
-    this.getMonth();
-    this.dayInMonthNumber();
-    this.dayInMonthBeforeNumber();
-    this.createDays();
+    this.wrapperFunction();
   }
   createDays() {
     this.daysInMonth = [];
@@ -141,5 +123,11 @@ export class CalendarComponent implements OnInit {
       this.monthIndex - 1,
       0
     ).getDate());
+  }
+  wrapperFunction() {
+    this.getMonth();
+    this.dayInMonthNumber();
+    this.dayInMonthBeforeNumber();
+    this.createDays();
   }
 }
