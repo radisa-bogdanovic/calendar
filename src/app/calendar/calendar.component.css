@@ -1,11 +1,53 @@
 .wrapper {
-  max-width: 280px;
-  display: flex;
-  flex-direction: row;
+  width: 35rem;
 }
 .days {
-  display: block;
-  width: 40px;
-  border: 2px solid black;
+  display: inline-block;
+  width: calc(95% / 7);
+  color: brown;
+  background-color: wheat;
   text-align: center;
+  border: 1px black solid;
+  height: calc(95% / 6);
+}
+.daysBefore {
+  display: inline-block;
+  width: calc(95% / 7);
+  color: rgb(216, 150, 150);
+  background-color: rgb(244, 241, 235);
+  text-align: center;
+  height: calc(95% / 6);
+  border: 1px black solid;
+}
+.wrapper-nav {
+  text-align: center;
+  font-size: 1.5rem;
+  color: brown;
+  display: flex;
+
+  width: 35rem;
+}
+.wrapperInside {
+  width: 49%;
+  border: solid wheat 1px;
+  padding: 0.5rem;
+}
+.wrapperDays {
+  height: 17rem;
+}
+.weekdays {
+  font-size: 2rem;
+}
+.button {
+  height: 30px;
+  width: 70px;
+  background-color: wheat;
+  margin: 1rem;
+  color: brown;
+  font-size: 1.5rem;
+}
+.days,
+.daysBefore {
+  text-justify: kashida;
+  font-size: 2rem;
 }
